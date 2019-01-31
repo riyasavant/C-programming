@@ -1,3 +1,5 @@
+//program to create a pyramid of * of n rows
+
 #include<stdio.h>
 int input()
 {
