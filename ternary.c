@@ -17,7 +17,7 @@ void result(int small)
 int main()
 {
   int x1,x2,x3;
-  input(&x1,&x2,&x3);
+  input3num(&x1,&x2,&x3);
   int small=smallest(x1,x2,x3);
   result(small);
   return 0;
