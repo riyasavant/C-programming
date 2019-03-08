@@ -1,47 +1,52 @@
 #include<stdio.h>
-void input();
-void compute(int b[],int x);
-void output(int c[],int y);
-void input()
+int array_size()
 {
   int n;
-  printf("Enter the number of values in the array\n");
+  printf("Enter the size of the array\n");
   scanf("%d",&n);
-  int a[n];
+  return n;
+}
+void array(int a[],int n)
+{
+  int i;
   printf("Enter the values in the array\n");
-  for(int i=0;i<n;i++)
+  for(i=0;i<n;i++)
   {
     scanf("%d",&a[i]);
   }
-  compute(a,n);
 }
-void compute(int b[],int x)
+void bubblesort(int a[],int n)
 {
- int temp;
- for(int i=0;i<x;i++)
+ int temp,i,j;
+ for(i=0;i<n;i++)
   {
-    for(int j=i+1;j<x;j++)
+    for(j=i+1;j<n;j++)
      {
-       if(b[i]>b[j])
+       if(a[i]>a[j])
        {
-        temp=b[i];
-        b[i]=b[j];
-        b[j]=temp;
+        temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
        }
      }
   }
-  output(b,x);
 }
-void output(int c[],int y)
+void result(int a[],int n)
 {
+ int i;
  printf("The array after bubble sort is\n");
- for(int i=0;i<y;i++)
+ for(i=0;i<n;i++)
   {
-    printf("%d\n",c[i]);
+    printf("%d\n",a[i]);
   }
 }
 int main()
 {
-  input();
+  int n;
+  n=array_size();
+  int a[n];
+  array(a,n);
+  bubblesort(a,n);
+  result(a,n);
   return 0;
 }
