@@ -1,12 +1,12 @@
 #include<stdio.h>
-int input()
+int input_number()
 {
  int n;
  printf("Enter the number to find the palindrome\n");
  scanf("%d",&n);
  return n;
 }
-int compute(int x)
+int reverse(int x)
 {
  int digit,rev=0;
  while(x!=0)
@@ -31,8 +31,8 @@ void output(int x,int y)
 int main()
 {
  int a,b;
- a=input();
- b=compute(a);
+ a=input_number();
+ b=reverse(a);
  output(a,b);
  return 0;
 }
