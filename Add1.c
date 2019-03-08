@@ -11,16 +11,16 @@ int addone(int n)
   n=n+1;
   return n;
 }
-void outputsum(int result)
+void outputresult(int result)
 {
   printf("after adding 1 the number is %d\n",result);
 }
 int main()
 {
   int n;
-  n=input();
-  int result=compute(n);
-  output(result);
+  n=inputnumber();
+  int result=addone(n);
+  outputresult(result);
   return 0;
 }
 
