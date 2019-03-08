@@ -1,5 +1,5 @@
 #include<stdio.h>
-void num(int *a,int *b)
+void input2num(int *a,int *b)
 {
     printf("Enter two mumbers to swap them\n");
     printf("x=");
@@ -7,14 +7,14 @@ void num(int *a,int *b)
     printf("y=");
     scanf("%d",b);
 }
-void compute(int *a,int *b)
+void swap(int *a,int *b)
 {
    int temp;
    temp=*a;
    *a=*b;
    *b=temp;
 }
-void output(int a,int b,int c,int d)
+void result(int a,int b,int c,int d)
 {
     printf("The numbers before swapping are x=%d and y=%d\n",a,b);
     printf("The numbers after swapping are x=%d and y=%d",c,d);
@@ -22,10 +22,10 @@ void output(int a,int b,int c,int d)
 int main()
 {
     int a,b,c,d;
-    num(&a,&b);
+    input2num(&a,&b);
     c=a;
     d=b;
-    compute(&a,&b);
-    output(c,d,a,b);
+    swap(&a,&b);
+    result(c,d,a,b);
     return 0;
 }
