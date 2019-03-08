@@ -1,10 +1,10 @@
 #include<stdio.h>
-void input(int *n,int *r)
+void inputnum(int *n,int *r)
 {
  printf("Enter the values of n and r to calculate ncr and  npr\n");
  scanf("%d%d",n,r);
 }
-void fact(int n,int r,int *factn,int *factr,int *factnr)
+void factorial(int n,int r,int *factn,int *factr,int *factnr)
 {
  int sum1=1,sum2=1,sum3=1,i;
  for(i=1;i<=n;i++)
@@ -23,23 +23,23 @@ void fact(int n,int r,int *factn,int *factr,int *factnr)
  *factr=sum2;
  *factnr=sum3;
 }
-void compute(int factn,int factr,int factnr,float *ncr,float *npr)
+void computePNC(int factn,int factr,int factnr,float *ncr,float *npr)
 {
  *ncr=factn/(factr*factnr);
  *npr=factn/factnr;
 }
-void output(float ncr,float npr)
+void result(float ncr,float npr)
 {
   printf("The values after calculation are\n ncr=%.2f\n npr=%.2f",ncr,npr);
 }
 int main()
 {
  int n,r,factn,factr,factnr;
- input(&n,&r);
- fact(n,r,&factn,&factr,&factnr);
+ inputnum(&n,&r);
+ factorial(n,r,&factn,&factr,&factnr);
  float ncr,npr;
- compute(factn,factr,factnr,&ncr,&npr);
- output(ncr,npr);
+ computePNC(factn,factr,factnr,&ncr,&npr);
+ result(ncr,npr);
  return 0;
 }
 
