@@ -1,14 +1,12 @@
-//program to create a pyramid of * of n rows
-
 #include<stdio.h>
-int input()
+int input_rows()
 {
   int rows;
   printf("Enter the number of rows\n");
   scanf("%d",&rows);
   return rows;
 }
-void compute(int rows)
+void pyramid(int rows)
 {
   int i,j,r;
   r=rows;
@@ -26,16 +24,15 @@ void compute(int rows)
    r--;
   }
 }
-void output()
+void result()
 {
  printf("The pyramid is given as\n\n");
 }
 int main()
 {
   int x;
-  x=input();
-  output();
-  compute(x);
+  x=input_rows();
+  result();
+  pyramid(x);
   return 0;
 }
-
