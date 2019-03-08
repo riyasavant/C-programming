@@ -20,7 +20,7 @@ struct fraction input(int n,struct fraction f[])
   scanf("%d%d",&f[i].num,&f[i].den);
  }
 };
-struct fraction compute(int n,struct fraction f[],struct fraction *f1)
+struct fraction add(int n,struct fraction f[],struct fraction *f1)
 {
  int numerator=0,denominator=1,i;
  for(i=1;i<=n;i++)
@@ -34,7 +34,7 @@ struct fraction compute(int n,struct fraction f[],struct fraction *f1)
  f1->num=numerator;
  f1->den=denominator;
 };
-struct fraction output(struct fraction f1)
+struct fraction result(struct fraction f1)
 {
  printf("The sum of all the fraction is %d/%d",f1.num,f1.den);
 };
@@ -46,8 +46,8 @@ int main()
  struct fraction f[i];
  input(i,f);
  struct fraction f1;
- compute(i,f,&f1);
- output(f1);
+ add(i,f,&f1);
+ result(f1);
  return 0;
  
 }
