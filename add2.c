@@ -1,25 +1,25 @@
 #include<stdio.h>
-void input(int *x,int *y)
+void inputtwonum(int *x,int *y)
 {
   printf("Enter two numbers\n");
   scanf("%d %d",x,y);
  }
-int compute(int a,int b)
+int addtwo(int x,int y)
 {
   int sum;
-  sum=a+b;
+  sum=x+y;
   return sum;
 }
-void output(int k)
+void outputresult(int result)
 {
   printf("after adding the numbers the output is %d\n",k);
 }
 int main()
 {
-  int r,s;
-  input(&r,&s);
-  int z=compute(r,s);
-  output(z);
+  int x,y;
+  inputtwonum(&x,&y);
+  int sum=addtwo(x,y);
+  outputresult(sum);
   return 0;
 }
 
