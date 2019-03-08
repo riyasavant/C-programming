@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<math.h>
-int input()
+int input_num()
 {
  int n;
  printf("Enter the number to find if it is an armstrong number\n");
  scanf("%d",&n);
  return n;
 }
-int compute(int x)
+int armstrong(int x)
 {
  int digit,arm=0,n=0,y;
  y=x;
@@ -24,7 +24,7 @@ int compute(int x)
  }
   return arm;
 }
-void output(int x,int y)
+void result(int x,int y)
 {
  if(x==y)
  {
@@ -37,10 +37,9 @@ void output(int x,int y)
 }
 int main()
 {
- int a,b;
- a=input();
- b=compute(a);
- output(a,b);
+ int a,arm;
+ a=input_num();
+ arm=armstrong(a);
+ result(a,arm);
  return 0;
 }
-
