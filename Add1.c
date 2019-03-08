@@ -1,26 +1,26 @@
 #include<stdio.h>
-int input()
+int inputnumber()
 {
-  int a;
+  int n;
   printf("Enter a number\n");
-  scanf("%d",&a);
-  return a;
+  scanf("%d",&n);
+  return n;
  }
-int compute(int b)
+int addone(int n)
 {
-  b=b+1;
-  return b;
+  n=n+1;
+  return n;
 }
-void output(int x)
+void outputsum(int result)
 {
-  printf("after adding 1 the number is %d\n",x);
+  printf("after adding 1 the number is %d\n",result);
 }
 int main()
 {
-  int y;
-  y=input();
-  int z=compute(y);
-  output(z);
+  int n;
+  n=input();
+  int result=compute(n);
+  output(result);
   return 0;
 }
 
