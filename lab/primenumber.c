@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int input()
+int input_range()
 {
  int n;
  printf("Enter the number of prime numbers to be generated\n");
@@ -8,7 +8,7 @@ int input()
  return n;
 }
 
-void compute(int n,int a[])
+void prime(int n,int a[])
 {
   int i=2,x=0;
  while(n>0)
@@ -37,9 +37,9 @@ void output(int b[],int n)
 int main()
 {
  int x;
- x=input();
+ x=input_range();
  int a[x];
- compute(x,a);
+ prime(x,a);
  output(a,x);
  return 0;
 }
