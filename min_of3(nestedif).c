@@ -1,10 +1,10 @@
 #include<stdio.h>
-void input(int *x,int *y, int *z)
+void input3num(int *x,int *y, int *z)
 {
   printf("Enter three numbers\n");
-  scanf("%d %d %d",x,y,z);
+  scanf("%d%d%d",x,y,z);
  }
-int compute(int a,int b,int c)
+int compare_3_num(int a,int b,int c)
 {
   if(a>b)
   {
@@ -30,15 +30,15 @@ int compute(int a,int b,int c)
   }
 return 0;  
 }
-void output(int k)
+void result(int min)
 {
-  printf("The smaller of the two numbers is %d\n",k);
+  printf("The smaller of the three numbers is %d\n",min);
 }
 int main()
 {
-  int e,f,g;
-  input(&e,&f,&g);
-  int z=compute(e,f,g);
-  output(z);
+  int x,y,z;
+  input3num(&x,&y,&z);
+  int min=compare_3_num(x,y,z);
+  result(min);
   return 0;
 }
