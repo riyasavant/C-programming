@@ -13,7 +13,7 @@ int addone(int n)
 }
 void outputresult(int result)
 {
-  printf("after adding 1 the number is %d\n",result);
+  printf("after adding 1 the result is %d\n",result);
 }
 int main()
 {
