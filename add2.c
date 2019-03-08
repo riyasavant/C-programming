@@ -12,7 +12,7 @@ int addtwo(int x,int y)
 }
 void outputresult(int result)
 {
-  printf("after adding the numbers the output is %d\n",k);
+  printf("after adding the numbers the output is %d\n",result);
 }
 int main()
 {
