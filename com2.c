@@ -24,7 +24,7 @@ int main()
 {
   int x,y;
   input2num(&x,&y);
-  int small=compare(x,y);
+  int small=compare_two(x,y);
   result(small);
   return 0;
 }
