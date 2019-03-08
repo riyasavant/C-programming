@@ -1,30 +1,30 @@
 #include<stdio.h>
-void input(int *x,int *y)
+void input2num(int *x,int *y)
 {
   printf("Enter two numbers\n");
   scanf("%d %d",x,y);
  }
-int compute(int a,int b)
+int compare_two(int x,int y)
 {
-  if(a>=b)
+  if(x>=y)
  {
-  return b;
+  return y;
  }
   else
  {
-  return a;
+  return x;
  }
   
 }
-void output(int k)
+void result(int small)
 {
-  printf("The smaller of the two numbers is %d\n",k);
+  printf("The smaller of the two numbers is %d\n",small);
 }
 int main()
 {
-  int r,s;
-  input(&r,&s);
-  int z=compute(r,s);
-  output(z);
+  int x,y;
+  input2num(&x,&y);
+  int small=compare(x,y);
+  result(small);
   return 0;
 }
