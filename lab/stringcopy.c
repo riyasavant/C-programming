@@ -1,8 +1,11 @@
 #include<stdio.h>
-void input(char str[],int *x)
+void input_string(char str[])
 {
  printf("Enter the string\n");
  scanf("%s",str);
+}
+void string_length(char str[],int *x)
+{
  int c=0,i=0;
  while(str[i]!='\0')
  {
@@ -28,7 +31,8 @@ int main()
  char str[50];
  int x;
  char str2[x];
- input(str,&x);
+ input_string(str);
+ string_length(str,&x);
  copystring(str,x,str2);
  output(str2);
  return 0;
