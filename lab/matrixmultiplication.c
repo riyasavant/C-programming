@@ -6,21 +6,14 @@ void size(int *a,int *b,int *c,int *d)
    printf("Enter the size of rows and colums of matrix 2\n");
    scanf("%d%d",c,d);
 }
-void input(int a,int b,int c,int d,int x[a][b],int y[c][d])
+void input(int a,int b,int x[a][b])
 {
-    printf("Enter the elements in matrix 1\n");
+    printf("Enter the elements in matrix \n");
     for(int i=0;i<a;i++)
     {
         for(int j=0;j<b;j++)
         {
             scanf("%d",&x[i][j]);
-        }
-    }
-    for(int i=0;i<c;i++)
-    {
-        for(int j=0;j<d;j++)
-        {
-            scanf("%d",&y[i][j]);
         }
     }
 }
@@ -58,7 +51,8 @@ int main()
     int a,b,c,d;
     size(&a,&b,&c,&d);
     int x[a][b],y[c][d];
-    input(a,b,c,d,x,y);
+    input(a,b,x);
+    input(c,d,y);
     int z[a][d];
     compute(a,b,c,d,x,y,z);
     output(a,d,z);
