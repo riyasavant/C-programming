@@ -13,7 +13,7 @@ int numofstudents()
  scanf("%d",&n);
  return n;
 }
-struct studentdetails input(int n,struct studentdetails f[])
+void input(int n,struct studentdetails f[])
 {
  int i;
  printf("Enter the details of the student\n\n");
@@ -30,7 +30,7 @@ int searchrollno()
  scanf("%d",&n);
  return n;
 }
-struct studentdetails output(struct studentdetails f[],int n,int x)
+void output(struct studentdetails f[],int n,int x)
 {
  int i;
  for(i=1;i<=x;i++)
