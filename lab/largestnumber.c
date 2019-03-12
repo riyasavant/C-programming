@@ -1,10 +1,10 @@
 #include<stdio.h>
-void input(int *x,int *y, int *z)
+void input3num(int *x,int *y, int *z)
 {
   printf("Enter three numbers\n");
   scanf("%d %d %d",x,y,z);
  }
-int compute(int a,int b,int c)
+int largest(int a,int b,int c)
 {
   int max;
   if(a>=b&&a>=c)
@@ -21,15 +21,15 @@ int compute(int a,int b,int c)
  }
  return max;
 }
-void output(int k)
+void result(int k)
 {
   printf("The largest of the three numbers is %d\n",k);
 }
 int main()
 {
   int e,f,g;
-  input(&e,&f,&g);
-  int z=compute(e,f,g);
-  output(z);
+  input3num(&e,&f,&g);
+  int z=largest(e,f,g);
+  result(z);
   return 0;
 }
