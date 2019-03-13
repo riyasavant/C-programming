@@ -4,12 +4,12 @@ struct fraction
  int num,den;
 };
 
-struct fraction input(struct fraction *f1,struct fraction *f2)
+void input(struct fraction *f1)
 {
- printf("Enter the numerator1, denominator1 and numerator2 and denominator2 of two fractions\n");
- scanf("%d%d%d%d",&f1->num,&f1->den,&f2->num,&f2->den);
+ printf("Enter the numerator and denominator\n");
+ scanf("%d%d",&f1->num,&f1->den);
 }
-struct fraction add(struct fraction f1, struct fraction f2,struct fraction *f3)
+void add(struct fraction f1, struct fraction f2,struct fraction *f3)
 {
  int numerator,denominator;
  numerator=(f1.num*f2.den)+(f2.num*f1.den);
@@ -17,15 +17,16 @@ struct fraction add(struct fraction f1, struct fraction f2,struct fraction *f3)
  f3->num=numerator;
  f3->den=denominator;
 }
-struct fraction result(struct fraction f1, struct fraction f2, struct fraction f3)
+void result(struct fraction f1)
 {
- printf("The sum of %d/%d+%d/%d is %d/%d",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den);
+ printf("The sum is %d/%d",f1.num,f1.den);
 }
 int main()
 {  
  struct fraction x,y,z;
- input(&x,&y);
+ input(&x);
+ input(&y);
  add(x,y,&z);
- result(x,y,z);
+ result(z);
  return 0;
 }
