@@ -57,9 +57,9 @@
      else if(a[mid]==x)
      {  
        return mid;
-     }
-    return -1;
+     )
     }
+     return -1;
  }
  void result(int pos)
  {
