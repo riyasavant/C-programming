@@ -1,89 +1,51 @@
 #include<stdio.h>
 #include<math.h>
 
-struct quadratic
+struct equation
 {
-  int a,b,c;
-  float disc,root1,root2;
-  float real,imag;
+  float a,b,c,real,root1,root2,imag,disc;
 };
 
-struct quadratic coefficients(struct quadratic *q)
+void input(struct equation *x)
 {
-   printf("Enter the co-efficients a,b,c of the quadratic equation\n");
-   scanf("%d%d%d",&q->a,&q->b,&q->c);
-};
-
-struct quadratic discriminant(struct quadratic *d,struct quadratic q)
-{
-   float dis;
-    dis=pow((q.b),2)-(4*(q.a)*(q.c));
-    d->disc=dis;
-};
-
-struct quadratic real_root(struct quadratic *r,struct quadratic q,struct quadratic d)
-{
-    printf("The roots are real and distinct\n\n");
-   float r1,r2,dis;
-    dis=sqrt(d.disc);
-    r1=(-(q.b)+dis)/(2*(q.a));
-    r2=(-(q.b)-dis)/(2*(q.a));
-    r->root1=r1;
-    r->root2=r2;
+  printf("Enter the values of a,b,c\n");
+  scanf("%f%f%f",&x->a,&x->b,&x->c);
+  x->disc=(pow(x->b,2)-(4*x->a*x->c));
 }
 
-struct quadratic imag_root(struct quadratic *i,struct quadratic q,struct quadratic d)
+void roots(struct equation x)
 {
-    printf("The roots are imaginary\n\n");
-   float imag,real,dis,di;
-    di=(-(d.disc));
-    dis=sqrt(di);
-    real=(-(q.b))/(2*(q.a));
-    imag=dis/(2*(q.a));
-    i->real=real;
-    i->imag=imag;
+  float dis;
+  if(x.disc<0)
+  { 
+   printf("The roots are imaginary\n");
+   dis=sqrt(-(x.disc));
+   x.real=-(x.b)/(2*x.a);
+   x.imag=dis/(2*x.a);
+   printf("root1=%.2f+i%.2f and root2=%.2f-i%.2f",x.real,x.imag,x.real,x.imag);
+  }
+  else if(x.disc>0)
+  {
+   printf("The roots are real and distinct\n");
+   dis=sqrt(x.disc);
+   x.root1=(-(x.b)+dis)/(2*x.a);
+   x.root2=(-(x.b)-dis)/(2*x.a);
+   printf("root1=%.2f+i0 and root2=%.2f+i0",x.root1,x.root2);
+  }
+  else
+  {
+   printf("The roots are real and equal\n");
+   dis=sqrt(x.disc);
+   x.root1=-(x.b)/(2*x.a);
+   printf("root1=%.2f+i0 and root2=%.2f+i0",x.root2,x.root2);
+  }
 }
-
-struct quadratic equal_root(struct quadratic *r,struct quadratic q,struct quadratic d)
-{
-    printf("The roots are real and equal\n\n");
-   float r1,r2,dis;
-    dis=sqrt(d.disc);
-    r1=(-(q.b)+dis)/(2*(q.a));
-    r2=(-(q.b)-dis)/(2*(q.a));
-    r->root1=r1;
-    r->root2=r2;
-}
-
-struct quadratic display_real(struct quadratic r)
-{
-    printf("r1=%f+i0 and r2=%f+i0\n",r.root1,r.root2);
-};
-
-struct quadratic display_imag(struct quadratic i)
-{
-    printf("r1=%f+i%f and r2=%f-i%f",i.real,i.imag,i.real,i.imag);
-};
 
 int main()
 {
-  struct quadratic q,d,r,i;
-   coefficients(&q);
-   discriminant(&d,q);
-  if(d.disc>0)
-   {
-    real_root(&r,q,d);
-    display_real(r);
-   }
-  else if(d.disc<0)
-   {
-    imag_root(&i,q,d);
-    display_imag(i);
-   }
-  else
-   {
-    equal_root(&r,q,d);
-    display_real(r);
-   }
+  struct equation x;
+  input(&x);
+  roots(x);
   return 0;
 }
+
