@@ -1,10 +1,8 @@
 #include<stdio.h>
-void size(int *a,int *b,int *c,int *d)
+void size(int *a,int *b)
 {
-   printf("Enter the size of rows and colums of matrix 1\n");
+   printf("Enter the size of rows and colums of matrix \n");
    scanf("%d%d",a,b);
-   printf("Enter the size of rows and colums of matrix 2\n");
-   scanf("%d%d",c,d);
 }
 void input(int a,int b,int x[a][b])
 {
@@ -49,7 +47,8 @@ void output(int a,int d,int z[a][d])
 int main()
 {
     int a,b,c,d;
-    size(&a,&b,&c,&d);
+    size(&a,&b);
+    size(&c,&d);
     int x[a][b],y[c][d];
     input(a,b,x);
     input(c,d,y);
