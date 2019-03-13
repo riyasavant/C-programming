@@ -13,7 +13,7 @@ void prime(int n,int a[])
   int i=2,x=0;
  while(n>0)
  {
-  if(i%2==0||i%3==0||i%5==0)
+  if(i%2==0||i%3==0||i%5==0||i%7==0)
   {
    i++;
   }
