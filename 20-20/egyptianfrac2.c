@@ -1,5 +1,3 @@
-//eqyptian fraction
-
 #include<stdio.h>
 #include<math.h>
 
@@ -20,12 +18,9 @@ int input_frac(struct fraction f[])
 
 void egyptianfrac(struct fraction f[],int n)
 {
- 
  float deno=1.00,nume=0.00;
  f[1].num=1;
  f[1].den=ceil(f[0].den/f[0].num);
- printf("%.0lf/%.0lf= %.0lf/%.0lf",f[0].num,f[0].den,f[1].num,f[1].den);
- 
  for(int i=2;i<=n;i++)
  {
   int j=0;
@@ -45,27 +40,31 @@ void egyptianfrac(struct fraction f[],int n)
   f[i].den=deno;
   if(f[i].num!=1)
   {
-   printf("+");
    f[i].den=ceil(f[i].den/f[i].num);
    f[i].num=1;
-   printf("%.0lf/%.0lf",f[i].num,f[i].den);
    continue;
   }
   else if(f[i].num==1)
   {
-   printf("+%.0lf/%.0lf",f[i].num,f[i].den);
    break;
   }
  }
- 
 }
-
+void output(struct fraction f[],int z)
+{
+ printf("%.0lf/%.0lf=",f[0].num,f[0].den);
+ for(int i=1;i<=z;i++)
+ {
+  printf("%.0lf/%.0lf+",f[i].num,f[i].den);
+ }
+}
 int main()
 {
  int n;
  struct fraction f[20];
  n=input_frac(f);
  egyptianfrac(f,n);
+ output(f,n);
  return 0;
 
 }
