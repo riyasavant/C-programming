@@ -1,6 +1,17 @@
 #include<stdio.h>
 #include<string.h>
 
+struct fibostring
+{
+char a[100];/* initial string 1 */
+char b[100];/* initial string 2 */
+int n;
+char strings[1000]; /* fibonacci */
+}
+
+
+
+
 struct string_fibonacci
 {
  char s1[100],s2[100];
