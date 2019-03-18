@@ -2,7 +2,7 @@
 
 struct egyptian_fraction
 {
- int num,den;
+ int num,den,n2,d;
  int arr[100];
 };
 
@@ -33,7 +33,7 @@ void fraction(int n,struct egyptian_fraction *a)
 
 void egyptianfrac(int n,struct egyptian_fraction *a)
 {
- int nume=0,deno=1,c,gcd,d,n2;
+ int nume=0,deno=1,c,gcd;
  for(int i=0;i<n;i++)
  {
   deno=deno*a->arr[i];
@@ -42,11 +42,11 @@ void egyptianfrac(int n,struct egyptian_fraction *a)
  {
   nume=nume+(deno/a->arr[i]);
  }
- printf("%d\n%d\n",nume,deno);
- /*d=deno;
- n=nume;
- c=nume%deno;
  
+ a->d=deno;
+ a->n2=nume;
+
+ c=nume%deno;
  while(c>0)
  {
  nume=deno;
@@ -54,17 +54,16 @@ void egyptianfrac(int n,struct egyptian_fraction *a)
  c=nume%deno;
  }
  gcd=deno;
- printf("%d\n",gcd);
- a->num=(n2/gcd);
- a->den=(d/gcd);*/
+ printf("gcd=%d\n",gcd);
 }
 
 void output(int n,struct egyptian_fraction a)
 {
- printf("The egyptian fraction is\n %d/%d=",a.num,a.den);
- for(int i=0;i<n;i++)
+ printf("The egyptian fraction is\n %d/%d=1/%d",a.n2,a.d,a.arr[0]);
+ for(int i=1;i<n;i++)
  {
- printf("1/%d+",a.arr[i]);
+ printf("+");
+ printf("1/%d",a.arr[i]);
  }
 }
 
