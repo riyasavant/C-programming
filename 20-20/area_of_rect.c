@@ -24,29 +24,20 @@ void areaa(struct area_of_rect *a)
  l=sqrt(pow((a->x2-a->x1),2)+pow((a->y2-a->y1),2));
  b=sqrt(pow((a->x3-a->x2),2)+pow((a->y3-a->y2),2));
  d=sqrt(pow((a->x3-a->x1),2)+pow((a->y3-a->y1),2));
- if(l<=b&&l<=d)
+ if(l<=d&&b<=d)
  {
   a->length=l;
- }
- else if(b<=d&&b<=l)
- {
-  a->length=b;
- }
- else if(d<=b&&d<=l)
- {
-  a->length=d;
- }
- if((l<=b&&b<=d)||(b<=l&&b>=d))
- {
   a->breadth=b;
  }
- else if((b<=l&&l<=d)||(l<=b&&l>=d))
+ else if(d<=b&&l<=b)
  {
-  a->breadth=d;
- }
- else if((d<=l&&d>=b)||(d<=b&&d>=l))
- {
+  a->length=d;
   a->breadth=l;
+ }
+ else if(d<=l&&b<=l)
+ {
+  a->length=d;
+  a->breadth=b;
  }
  a->area=(a->length*a->breadth);
 }
