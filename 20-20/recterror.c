@@ -1,5 +1,6 @@
 //use of passing by reference
 //use of macro to simplify the code
+//separate function for calculations
 
 #include<stdio.h>
 #include<math.h>
