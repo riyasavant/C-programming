@@ -1,7 +1,7 @@
 //Separate GCD function
- gbdbhgr hbgnrtdsn4tzgef
-#include<stdio.h>
+//in output never do computation
 
+#include<stdio.h>
 
 struct egyptian_fraction
 { 
@@ -27,7 +27,7 @@ void number_of_fraction(struct egyptian_fraction *a)
  scanf("%d",&a->n);
 }
  
-void fraction(struct egyptian_fraction *a)
+void get_fraction(struct egyptian_fraction *a)
 {
  printf("Enter the denominators of the fractions\n");
  for(int i=0;i<a->n;i++)
@@ -38,7 +38,7 @@ void fraction(struct egyptian_fraction *a)
 
 void egyptianfrac(struct egyptian_fraction a,struct fraction *f)
 {
- int nume=0,deno=1,c,gcd,temp1,temp2;
+ int nume=0,deno=1;
  for(int i=0;i<a.n;i++)
  {
   deno=deno*a.arr[i];
@@ -47,8 +47,14 @@ void egyptianfrac(struct egyptian_fraction a,struct fraction *f)
  {
   nume=nume+(deno/a.arr[i]);
  }
- temp2=deno;
- temp1=nume;
+ f->numerator=nume;
+ f->denominator=deno;
+}
+int GCD(struct fraction f)
+{
+ int c,nume,deno,gcd;
+ nume=(f.numerator);
+ deno=(f.denominator);
  c=nume%deno;
  while(c>0)
  {
@@ -57,13 +63,13 @@ void egyptianfrac(struct egyptian_fraction a,struct fraction *f)
  c=nume%deno;
  }
  gcd=deno;
- f->denominator=(temp2/gcd);
- f->numerator=(temp1/gcd);
+ 
+ return gcd;
 }
 
-void output(struct egyptian_fraction a,struct fraction f)
+void output(struct egyptian_fraction a,struct fraction f,int gcd)
 {
- printf("%d/%d=1/%d",f.numerator,f.denominator,a.arr[0]);
+ printf("%d/%d=1/%d",f.numerator/gcd,f.denominator/gcd,a.arr[0]);
  for(int i=1;i<a.n;i++)
  {
  printf("+");
@@ -74,16 +80,17 @@ void output(struct egyptian_fraction a,struct fraction f)
 
 int main()
 {
- int x;
+ int x,gcd;
  x=instances();
  while(x>0)
  {
  struct egyptian_fraction a;
  number_of_fraction(&a);
- fraction(&a);
+ get_fraction(&a);
  struct fraction f;
  egyptianfrac(a,&f);
- output(a,f);
+ gcd=GCD(f);
+ output(a,f,gcd);
  x--;
  }
  return 0;
