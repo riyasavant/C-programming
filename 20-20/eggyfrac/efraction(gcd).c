@@ -1,5 +1,5 @@
 //Separate GCD function
-
+ gbdbhgr hbgnrtdsn4tzgef
 #include<stdio.h>
 
 
