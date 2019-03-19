@@ -1,55 +1,63 @@
 #include<stdio.h>
 #include<math.h>
 
-struct circle
+struct circle_attributes
 {
- float r1,r2,x1,y1,x2,y2;
+ float r[2],x[2],y[2];
 };
 
-int instances()
+struct circles
 {
  int n;
- printf("Enter the number of pairs to be analysed\n");
- scanf("%d",&n);
- return n;
-}
+ struct circle_attributes a[100];
+};
 
-void circle_data(struct circle *c)
+void instances(struct circles *c)
 {
- printf("Enter the following\nCircle 1: Radius,centre\nCircle 2: Radius,centre\n");
- scanf("%f%f%f%f%f%f",&c->r1,&c->x1,&c->y1,&c->r2,&c->x2,&c->y2);
+ printf("Enter the number of pairs to be analysed\n");
+ scanf("%d",&c->n);
 }
 
-void intersection(struct circle c)
+void circle_data(struct circles *c)
+{
+ printf("Enter the radius and centre C(x,y)\n");
+ for(int i=0;i<(c->n);i++)
+ {
+  for(int j=0;j<2;j++)
+  {
+   scanf("%f %f %f",&c->a[i].r[j],&c->a[i].x[j],&c->a[i].y[j]);
+  }
+ }
+}
+
+void intersection(struct circles c)
 {
  float c1c2;
- c1c2=sqrt(pow(c.x2-c.x1,2)+pow(c.y2-c.y1,2));
- if(c1c2>(c.r1+c.r2)||c1c2<(c.r1-c.r2)||c1c2<(c.r2-c.r1))
+ for(int i=0;i<(c.n);i++)
+ {
+  c1c2=sqrt(pow(c.a[i].x[1]-c.a[i].x[0],2)+pow(c.a[i].y[1]-c.a[i].y[0],2));
+ if(c1c2>(c.a[i].r[1]+c.a[i].r[0])||c1c2<(c.a[i].r[1]-c.a[i].r[0])||c1c2<(c.a[i].r[0]-c.a[i].r[1]))
  {
   printf("The circles are not intersecting\n");
   printf("----------------\n");
  }
- else if((c1c2<(c.r1+c.r2)&&c1c2>(c.r1-c.r2))||(c1c2<(c.r1+c.r2)&&c1c2>(c.r2-c.r1)))
+ else if((c1c2<(c.a[i].r[1]+c.a[i].r[0])&&c1c2>(c.a[i].r[1]-c.a[i].r[0]))||(c1c2<(c.a[i].r[0]+c.a[i].r[1])&&c1c2>(c.a[i].r[0]-c.a[i].r[1])))
  {
   printf("The circles intersect\n");
   printf("----------------\n");
  }
- else if(c1c2==(c.r1+c.r2)||c1c2<(c.r1-c.r2)||c1c2<(c.r2-c.r1))
+ else if(c1c2==(c.a[i].r[0]+c.a[i].r[1])||c1c2<(c.a[i].r[1]-c.a[i].r[0])||c1c2<(c.a[i].r[0]-c.a[i].r[1]))
  {
   printf("The circles touch each other\n");
   printf("----------------\n");
  }
 }
+}
 int main()
 {
- int n;
- n=instances();
- while(n>0)
- {
-  struct circle c;
-  circle_data(&c);
-  intersection(c);
-  n--;
- }
+ struct circles c;
+ instances(&c);
+ circle_data(&c);
+ intersection(c);
  return 0;
 }
