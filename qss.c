@@ -25,7 +25,7 @@ void input_string(int n,char str[n][10])
  }
 }
 
-void sorted_string(int n,str[n][10])
+void sorted_string(int n,char str[n][10])
 {
  printf("The string after sorting is\n");
  for(int i=0;i<n;i++)
