@@ -4,7 +4,7 @@
 
 int compare(const void *a,const void *b)
 {
- int n=strcmp(const char *a,const char *b);
+ int n=strcmp((char *)a,(char *)b);
  return n;
 }
 
