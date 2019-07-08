@@ -22,7 +22,7 @@ int input()
  return n;
 }
 
-void input_string(int n,char str[n])
+void input_string(int n,char str[n][10])
 {
  printf("Enter the strings\n");
  for(int i=0;i<n;i++)
@@ -34,7 +34,7 @@ void input_string(int n,char str[n])
 int main()
 {
  int n=input();
- char str[n];
+ char str[n][10];
  input_string(n,str);
  qsort(str,n,10,compare);
  printf("The string after sorting is\n");
