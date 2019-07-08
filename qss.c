@@ -25,16 +25,21 @@ void input_string(int n,char str[n][10])
  }
 }
 
+void sorted_string(int n,str[n][10])
+{
+ printf("The string after sorting is\n");
+ for(int i=0;i<n;i++)
+ {
+  printf("%s\n",str[i]);
+ }
+}
+
 int main()
 {
  int n=input();
  char str[n][10];
  input_string(n,str);
  qsort(str,n,10,compare);
- printf("The string after sorting is\n");
- for(int i=0;i<n;i++)
- {
-  printf("%s\n",str[i]);
- }
+ sorted_string(n,str);
  return 0;
 }
