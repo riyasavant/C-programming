@@ -4,7 +4,9 @@
 
 int compare(const void *a,const void *b)
 {
- if(char *a[0]>char *b[0])
+ char *p=const char *a[0];
+ char *q=const char *b[0];
+ if(*p>*q)
  {
   return -1;
  }
